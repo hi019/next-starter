@@ -1,35 +1,70 @@
 {
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        }
-    },
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module",
-        "project": "./tsconfig.json",
-        "tsconfigRootDir": "./"
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     },
     "plugins": [
-        "react",
         "@typescript-eslint",
-        "import"
+        "react-hooks",
+        "modules-newline"
+    ],
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
-        "no-unused-vars": "warn"
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "react/jsx-curly-brace-presence": [
+            "warn",
+            "never"
+        ],
+        "jsx-quotes": [
+            "warn",
+            "prefer-single"
+        ],
+        "quotes": [
+            "warn",
+            "single"
+        ],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "modules-newline/import-declaration-newline": "warn",
+        "modules-newline/export-declaration-newline": "warn",
+        "object-curly-newline": [
+            "error",
+            {
+                "ImportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 2
+                },
+                "ExportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 2
+                }
+            }
+        ],
+        "indent": [ 1, 4 ]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
     }
 }
